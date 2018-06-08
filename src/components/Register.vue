@@ -7,10 +7,10 @@
       <mu-form-item label="" prop="password" :rules="passwordRules">
         <mu-text-field type="password" v-model="regForm.password" prop="password" placeholder="password"></mu-text-field>
       </mu-form-item>
-      <mu-form-item lable="" prop="birthDate">
+      <mu-form-item lable="" prop="birthDate" :rules="birthDateRules">
         <mu-date-input v-model="regForm.birthDate" label="birthDate" label-float full-width format=""></mu-date-input>
       </mu-form-item>
-      <mu-form-item lable="" prop="sex">
+      <mu-form-item lable="" prop="sex" :rules="sexRules">
           <mu-radio :value="1" v-model="regForm.sex" :label="' ' + '男'" ></mu-radio>
           <mu-radio :value="2" v-model="regForm.sex" :label="' ' + '女'"></mu-radio>
       </mu-form-item>
@@ -39,6 +39,8 @@ export default {
         {validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
       ],
       argeeRules: [{validate: (val) => !!val, message: '必须同意用户协议'}],
+      birthDateRules: [{validate: (val) => !!val, message: '出生日期为空'}],
+      sexRules: [{validate: (val) => !!val, message: '性别为空'}],
       regForm: {
         username: '',
         password: '',
@@ -51,15 +53,19 @@ export default {
   methods: {
     submit () {
       this.$refs.regForm.validate()
-      this.$http.post('/user', this.regForm)
-        .then(function (response) {
-          console.log(response)
-          alert(response)
-        })
-        .catch(function (err) {
-          console.log(err)
-          alert(err)
-        })
+      if (!this.regForm.username || !this.regForm.password || !this.regForm.birthDate || !this.regForm.sex || !this.regForm.isAgree) {
+        console.log('must field is null !')
+      } else {
+        this.$http.post('/user', this.regForm)
+          .then(function (response) {
+            console.log(response)
+            alert(response)
+          })
+          .catch(function (err) {
+            console.log(err)
+            alert(err)
+          })
+      }
     },
     clear () {
       this.$refs.regForm.clear()
