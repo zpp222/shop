@@ -1,21 +1,21 @@
 <template>
   <mu-container>
-    <mu-form ref="form" :model="validateForm" class="mu-demo-form">
+    <mu-form ref="regForm" :model="regForm" class="mu-demo-form" autoValidate=true>
       <mu-form-item label="" prop="username" :rules="usernameRules">
-        <mu-text-field v-model="validateForm.username" prop="username" placeholder="username"></mu-text-field>
+        <mu-text-field v-model="regForm.username" prop="username" placeholder="username"></mu-text-field>
       </mu-form-item>
       <mu-form-item label="" prop="password" :rules="passwordRules">
-        <mu-text-field type="password" v-model="validateForm.password" prop="password" placeholder="password"></mu-text-field>
+        <mu-text-field type="password" v-model="regForm.password" prop="password" placeholder="password"></mu-text-field>
       </mu-form-item>
       <mu-form-item lable="" prop="birthDate">
-        <mu-date-input v-model="validateForm.birthDate" label="birthDate" label-float full-width format=""></mu-date-input>
+        <mu-date-input v-model="regForm.birthDate" label="birthDate" label-float full-width format=""></mu-date-input>
       </mu-form-item>
       <mu-form-item lable="" prop="sex">
-          <mu-radio :value="1" v-model="validateForm.sex" :label="' ' + '男'" ></mu-radio>
-          <mu-radio :value="2" v-model="validateForm.sex" :label="' ' + '女'"></mu-radio>
+          <mu-radio :value="1" v-model="regForm.sex" :label="' ' + '男'" ></mu-radio>
+          <mu-radio :value="2" v-model="regForm.sex" :label="' ' + '女'"></mu-radio>
       </mu-form-item>
       <mu-form-item prop="isAgree" :rules="argeeRules">
-        <mu-checkbox label="同意用户协议" v-model="validateForm.isAgree"></mu-checkbox>
+        <mu-checkbox label="同意用户协议" v-model="regForm.isAgree"></mu-checkbox>
       </mu-form-item>
       <mu-form-item>
         <mu-button color="primary" @click="submit">提交</mu-button>
@@ -39,7 +39,7 @@ export default {
         {validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
       ],
       argeeRules: [{validate: (val) => !!val, message: '必须同意用户协议'}],
-      validateForm: {
+      regForm: {
         username: '',
         password: '',
         birthDate: '',
@@ -50,9 +50,8 @@ export default {
   },
   methods: {
     submit () {
-      this.$refs.form.validate()
-      // alert(this.validateForm.birthDate)
-      this.$http.post('/user', this.validateForm)
+      this.$refs.regForm.validate()
+      this.$http.post('/user', this.regForm)
         .then(function (response) {
           console.log(response)
           alert(response)
@@ -63,8 +62,8 @@ export default {
         })
     },
     clear () {
-      this.$refs.form.clear()
-      this.validateForm = {
+      this.$refs.regForm.clear()
+      this.regForm = {
         username: '',
         password: '',
         birthDate: '',
