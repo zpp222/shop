@@ -31,3 +31,5 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 # muse-ui
 # https://muse-ui.org/#/zh-CN/installation
+
+# vue-route
