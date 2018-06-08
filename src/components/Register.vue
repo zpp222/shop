@@ -52,6 +52,15 @@ export default {
     submit () {
       this.$refs.form.validate()
       alert(this.validateForm.birthDate)
+      this.$http.get('/user?ID=12345')
+        .then(function (response) {
+          console.log(response)
+          alert(response)
+        })
+        .catch(function (err) {
+          console.log(err)
+          alert(err)
+        })
     },
     clear () {
       this.$refs.form.clear()
