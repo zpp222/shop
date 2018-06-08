@@ -51,8 +51,8 @@ export default {
   methods: {
     submit () {
       this.$refs.form.validate()
-      alert(this.validateForm.birthDate)
-      this.$http.get('/user?ID=12345')
+      // alert(this.validateForm.birthDate)
+      this.$http.post('/user', this.validateForm)
         .then(function (response) {
           console.log(response)
           alert(response)
