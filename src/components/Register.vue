@@ -60,10 +60,10 @@ export default {
           .then(function (response) {
             console.log(response)
             alert(response)
+            this.$router.push({name: 'Login', params: { name: this.regForm.username }})
           })
           .catch(function (err) {
             console.log(err)
-            alert(err)
           })
       }
     },

@@ -10,25 +10,25 @@ Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
 theme.add('main-theme', {
-  primary: '#009688',
+  primary: '#2196f3',
   secondary: '#ff4081',
-  success: '#af1d1c',
-  warning: '#ffeb3b',
+  success: '#4caf50',
+  warning: '#fdd835',
   info: '#2196f3',
   error: '#f44336',
-  track: '#757575',
+  track: '#bdbdbd',
   text: {
-    primary: '#fff',
-    secondary: 'rgba(255, 255, 255, 0.7)',
-    alternate: '#303030',
-    disabled: 'rgba(255, 255, 255, 0.3)',
-    hint: 'rgba(255, 255, 255, 0.3)' // 提示文字颜色
+    primary: 'rgba(0, 0, 0, 0.87)',
+    secondary: 'gba(0, 0, 0, 0.54)',
+    alternate: '#fff',
+    disabled: 'rgba(0, 0, 0, 0.38)',
+    hint: 'rgba(0, 0, 0, 0.38)' // 提示文字颜色
   },
-  divider: 'rgba(255, 255, 255, 0.3)',
+  divider: 'rgba(0, 0, 0, 0.12)',
   background: {
-    paper: '#424242',
-    chip: '#616161',
-    default: '#303030'
+    paper: '#fff',
+    chip: '#e0e0e0',
+    default: '#fafafa'
   }
 }, 'light')
 
