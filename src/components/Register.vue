@@ -8,7 +8,7 @@
         <mu-text-field type="password" v-model="regForm.password" prop="password" placeholder="password"></mu-text-field>
       </mu-form-item>
       <mu-form-item lable="" prop="birthDate" :rules="birthDateRules">
-        <mu-date-input v-model="regForm.birthDate" label="birthDate" label-float full-width format=""></mu-date-input>
+        <mu-date-input v-model="regForm.birthDate" container="dialog" label="birthDate" label-float full-width format=""></mu-date-input>
       </mu-form-item>
       <mu-form-item lable="" prop="sex" :rules="sexRules">
           <mu-radio :value="1" v-model="regForm.sex" :label="' ' + '男'" ></mu-radio>
@@ -39,7 +39,7 @@ export default {
         {validate: (val) => val.length >= 3 && val.length <= 10, message: '密码长度大于3小于10'}
       ],
       argeeRules: [{validate: (val) => !!val, message: '必须同意用户协议'}],
-      birthDateRules: [{validate: (val) => !!val, message: '出生日期为空'}],
+      birthDateRules: [{validate: (val) => true, message: '出生日期为空'}],
       sexRules: [{validate: (val) => !!val, message: '性别为空'}],
       regForm: {
         username: '',
