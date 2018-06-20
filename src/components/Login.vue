@@ -1,45 +1,56 @@
 <template>
   <div class="login-div">
-    {{ msg }} {{ $route.params.name }} <br/>
-    <form @submit.prevent="onsubmit">
-      <input v-model="name" placeholder="edit name"/>
-      <input v-model="passwd" placeholder="edit password" type="password"/>
-      <input type="submit"/>
-    </form>
+    <mu-flex class="flex-wrapper" justify-content="center">
+      <!--mt-header fixed=true title="fixed top"></mt-header-->
+      <form @submit.prevent="onsubmit" id="loginForm">
+        <mt-field label="用户名" placeholder="Input name" v-model="loginForm.name"></mt-field>
+        <mt-field label="密 码" placeholder="Input passwd" v-model="loginForm.passwd" type="password"></mt-field>
+        <mt-button type="primary" size="large">primary</mt-button>
+      </form><br>
+    </mu-flex>
   </div>
 </template>
 
 <script>
+import { Toast } from 'mint-ui'
+
 export default {
   name: 'Login',
   data () {
     return {
-      msg: 'login from :'
+      loginForm: {
+        name: '',
+        passwd: ''
+      }
     }
   },
   methods: {
     onsubmit: function (event) {
-      console.log('11')
-      alert('submit :' + this.name)
+      const route = this.$router
+      this.$http.post('/api/shop-console/login2', {
+        name: this.loginForm.name,
+        passwd: this.loginForm.passwd
+      })
+        .then(function (response) {
+          if (response.data.rtcode === 'LG_0000') {
+            route.push({name: 'HelloWorld', params: { name: 'zpp' }})
+          } else {
+            Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
+          }
+        })
+        .catch(function (response) {
+          console.log(response)
+        })
     }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style>
+.flex-wrapper {
+  width: 100%;
+  height: 180px;
+  margin-top: 20px;
 }
 </style>

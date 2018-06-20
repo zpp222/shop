@@ -1,13 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
 Vue.use(Router)
 Vue.use(MuseUI)
+Vue.use(MintUI)
 
 export default new Router({
   routes: [
@@ -17,7 +23,7 @@ export default new Router({
       component: HelloWorld
     },
     {
-      path: '/login/:name',
+      path: '/login',
       name: 'Login',
       component: Login
     },
