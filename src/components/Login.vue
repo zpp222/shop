@@ -27,14 +27,17 @@ export default {
   methods: {
     onsubmit: function (event) {
       const route = this.$router
+      const store = this.$store
       this.$http.post('/api/shop-console/login2', {
         name: this.loginForm.name,
         passwd: this.loginForm.passwd
       })
         .then(function (response) {
           if (response.data.rtcode === 'LG_0000') {
+            store.commit('cart/setpPoductList', { 'response': response.data })
             route.push({name: 'HelloWorld', params: { name: 'zpp' }})
           } else {
+            store.dispatch('cart/clearAll')
             Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
           }
         })
@@ -47,7 +50,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
 .flex-wrapper {
   width: 100%;
   height: 180px;

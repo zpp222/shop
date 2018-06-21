@@ -14,6 +14,8 @@ import 'mint-ui/lib/style.css'
 
 import Vuex from 'vuex'
 
+import store from './store/index.js'
+
 Vue.use(MuseUI)
 Vue.use(MintUI)
 Vue.use(Vuex)
@@ -51,6 +53,7 @@ theme.use('dark')
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
