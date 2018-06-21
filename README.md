@@ -44,3 +44,7 @@ npm install --save axios vue-axios
 import axios from 'axios'
 Vue.prototype.$http = axios
 
+
+# vuex
+# https://vuex.vuejs.org/zh/installation.html
+

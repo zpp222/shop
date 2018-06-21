@@ -6,6 +6,18 @@ import router from './router'
 import axios from 'axios'
 import theme from 'muse-ui/lib/theme'
 
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
+
+import Vuex from 'vuex'
+
+Vue.use(MuseUI)
+Vue.use(MintUI)
+Vue.use(Vuex)
+
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
 
@@ -32,7 +44,8 @@ theme.add('main-theme', {
   }
 }, 'light')
 
-theme.use('main-theme')
+// theme.use('main-theme')
+theme.use('dark')
 
 /* eslint-disable no-new */
 new Vue({

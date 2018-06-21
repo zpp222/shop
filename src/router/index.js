@@ -5,15 +5,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 
-import MuseUI from 'muse-ui'
-import 'muse-ui/dist/muse-ui.css'
-
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
-
 Vue.use(Router)
-Vue.use(MuseUI)
-Vue.use(MintUI)
 
 export default new Router({
   routes: [
