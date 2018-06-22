@@ -27,18 +27,18 @@ npm run e2e
 npm test
 ```
 
-# mint-ui
-http://mint-ui.github.io/#!/zh-cn
+## mint-ui
+> http://mint-ui.github.io/#!/zh-cn
 
-# muse-ui
-# https://muse-ui.org/#/zh-CN/installation
+## muse-ui
+> https://muse-ui.org/#/zh-CN/installation
 
-# vue-route
-# https://router.vuejs.org
+## vue-route
+> https://router.vuejs.org
 
-# axios
-# https://www.npmjs.com/package/axios-es6
+## axios
+> https://www.npmjs.com/package/axios-es6
 
-# vuex
-# https://vuex.vuejs.org/zh/installation.html
+## vuex
+> https://vuex.vuejs.org/zh/installation.html
 
