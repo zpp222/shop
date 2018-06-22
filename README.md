@@ -29,21 +29,17 @@ npm test
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
+# mint-ui
+http://mint-ui.github.io/#!/zh-cn
+
 # muse-ui
 # https://muse-ui.org/#/zh-CN/installation
 
 # vue-route
 # https://router.vuejs.org
 
-# AXIOS HTTP REQUEST
+# axios
 # https://www.npmjs.com/package/axios-es6
-
-# install dependencies
-npm install --save axios vue-axios
-# usage : main.js
-import axios from 'axios'
-Vue.prototype.$http = axios
-
 
 # vuex
 # https://vuex.vuejs.org/zh/installation.html
