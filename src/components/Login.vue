@@ -27,9 +27,9 @@ export default {
   },
   methods: {
     ...mapActions({
-      clearAll: 'cart/clearAll' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
+      clearAll: 'login/clearAll' // 将 `this.xx()` 映射为 `this.$store.dispatch('xx')`
     }),
-    ...mapMutations({setpPoductList: 'cart/setpPoductList'}),
+    ...mapMutations({setloginCode: 'login/setloginCode', setToken: 'login/setToken'}),
     onsubmit: function (event) {
       var that = this
       this.$http.post('/api/shop-console/login2', {
@@ -43,11 +43,11 @@ export default {
     },
     submitSuc: function (response) {
       if (response.data.rtcode === 'LG_0000') {
-        // this.$store.commit('cart/setpPoductList', { 'response': response.data })
-        this.setpPoductList({ 'response': response.data })
+        // this.$store.commit('login/setloginCode', response.data)
+        this.setloginCode(response.data)
         this.$router.push({name: 'HelloWorld', params: { name: '' }})
       } else {
-        // this.$store.dispatch('cart/clearAll')
+        // this.$store.dispatch('login/clearAll')
         this.clearAll()
         Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
       }

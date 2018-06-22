@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     submit () {
+      var that = this
       this.$refs.regForm.validate()
       if (!this.regForm.username || !this.regForm.password || !this.regForm.birthDate || !this.regForm.sex || !this.regForm.isAgree) {
         console.log('must field is null !')
@@ -60,7 +61,7 @@ export default {
           .then(function (response) {
             console.log(response)
             alert(response)
-            this.$router.push({name: 'Login', params: { name: this.regForm.username }})
+            that.$router.push({name: 'Login', params: { name: this.regForm.username }})
           })
           .catch(function (err) {
             console.log(err)
