@@ -49,7 +49,7 @@ export default {
       } else {
         // this.$store.dispatch('login/clearAll')
         this.clearAll()
-        Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
+        Toast({message: 'login fail,please check your info!', duration: 1500, position: 'center'})
       }
     }
   }
