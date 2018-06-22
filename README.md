@@ -34,7 +34,7 @@ npm test
 > https://muse-ui.org/#/zh-CN/installation
 
 ## vue-route
-> https://router.vuejs.org
+> https://router.vuejs.org/zh/
 
 ## axios
 > https://www.npmjs.com/package/axios-es6
