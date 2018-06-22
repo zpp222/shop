@@ -12,13 +12,13 @@ import 'muse-ui/dist/muse-ui.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
-import Vuex from 'vuex'
+// import Vuex from 'vuex'
 
 import store from './store/index.js'
 
 Vue.use(MuseUI)
 Vue.use(MintUI)
-Vue.use(Vuex)
+// Vue.use(Vuex)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
