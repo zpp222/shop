@@ -1,6 +1,10 @@
 <template>
   <mu-container>
-    <mt-header fixed=true title=""></mt-header>
+    <mt-header fixed title="注册">
+      <router-link to="/" slot="left">
+        <mt-button icon="back">返回</mt-button>
+      </router-link>
+    </mt-header>
     <mu-form ref="regForm" :model="regForm" class="mu-demo-form" autoValidate=true>
       <mu-form-item label="" prop="username" :rules="usernameRules">
         <mu-text-field v-model="regForm.username" prop="username" placeholder="username"></mu-text-field>

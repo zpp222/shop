@@ -1,7 +1,11 @@
 <template>
   <div class="login-div">
     <mu-flex class="flex-wrapper" justify-content="center">
-      <!--mt-header fixed=true title="fixed top"></mt-header-->
+      <mt-header fixed title="登录">
+        <router-link to="/" slot="left">
+          <mt-button icon="back">返回</mt-button>
+        </router-link>
+      </mt-header>
       <form @submit.prevent="onsubmit" id="loginForm">
         <mt-field label="用户名" placeholder="Input name" v-model="loginForm.name"></mt-field>
         <mt-field label="密 码" placeholder="Input passwd" v-model="loginForm.passwd" type="password"></mt-field>
@@ -60,7 +64,11 @@ export default {
 <style scoped>
 .flex-wrapper {
   width: 100%;
-  height: 180px;
-  margin-top: 20px;
+  height: 100%;
+  margin-top: 140px;
+  // background-color: brown;
+}
+#loginForm {
+  width: 300px;
 }
 </style>

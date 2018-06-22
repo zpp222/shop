@@ -46,8 +46,8 @@ theme.add('main-theme', {
   }
 }, 'light')
 
-// theme.use('main-theme')
-theme.use('dark')
+theme.use('main-theme')
+// theme.use('dark')
 
 /* eslint-disable no-new */
 new Vue({
