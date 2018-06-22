@@ -13,6 +13,7 @@
 
 <script>
 import { Toast } from 'mint-ui'
+import { mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'Login',
@@ -25,25 +26,31 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      clearAll: 'cart/clearAll' // 将 `this.add()` 映射为 `this.$store.dispatch('increment')`
+    }),
+    ...mapMutations({setpPoductList: 'cart/setpPoductList'}),
     onsubmit: function (event) {
-      const route = this.$router
-      const store = this.$store
+      var that = this
       this.$http.post('/api/shop-console/login2', {
         name: this.loginForm.name,
         passwd: this.loginForm.passwd
       })
-        .then(function (response) {
-          if (response.data.rtcode === 'LG_0000') {
-            store.commit('cart/setpPoductList', { 'response': response.data })
-            route.push({name: 'HelloWorld', params: { name: 'zpp' }})
-          } else {
-            store.dispatch('cart/clearAll')
-            Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
-          }
-        })
+        .then(function (response) { that.submitSuc(response) })
         .catch(function (response) {
           console.log(response)
         })
+    },
+    submitSuc: function (response) {
+      if (response.data.rtcode === 'LG_0000') {
+        // this.$store.commit('cart/setpPoductList', { 'response': response.data })
+        this.setpPoductList({ 'response': response.data })
+        this.$router.push({name: 'HelloWorld', params: { name: '' }})
+      } else {
+        // this.$store.dispatch('cart/clearAll')
+        this.clearAll()
+        Toast({message: 'login fail,please check your info!', duration: 1500, position: 'top'})
+      }
     }
   }
 }
