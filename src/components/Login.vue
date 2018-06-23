@@ -43,6 +43,7 @@ export default {
         .then(function (response) { that.submitSuc(response) })
         .catch(function (response) {
           console.log(response)
+          Toast({message: '网络异常，请稍后再试~~', duration: 1500, position: 'center'})
         })
     },
     submitSuc: function (response) {
