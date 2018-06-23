@@ -36,9 +36,13 @@ export default {
     ...mapMutations({setloginCode: 'login/setloginCode', setToken: 'login/setToken'}),
     onsubmit: function (event) {
       var that = this
+      // var randoms = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+      // var salt = randoms[Math.floor(Math.random() * 36)]
+      var salt = 'shop'
       this.$http.post('/api/shop-console/login2', {
         name: this.loginForm.name,
-        passwd: this.$md5(this.loginForm.passwd)
+        passwd: this.$md5(salt + this.loginForm.passwd),
+        salt: salt
       })
         .then(function (response) { that.submitSuc(response) })
         .catch(function (response) {
