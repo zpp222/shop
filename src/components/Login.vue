@@ -18,6 +18,7 @@
 <script>
 import { Toast } from 'mint-ui'
 import { mapActions, mapMutations } from 'vuex'
+let Base64 = require('js-base64').Base64
 
 export default {
   name: 'Login',
@@ -38,10 +39,12 @@ export default {
       var that = this
       // var randoms = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
       // var salt = randoms[Math.floor(Math.random() * 36)]
-      var salt = 'shop'
+      let username = this.loginForm.name
+      let pwd = this.loginForm.passwd
+      var salt = Base64.encode(username)
       this.$http.post('/api/shop-console/login2', {
-        name: this.loginForm.name,
-        passwd: this.$md5(salt + this.loginForm.passwd),
+        name: username,
+        passwd: this.$md5(salt + pwd),
         salt: salt
       })
         .then(function (response) { that.submitSuc(response) })
@@ -64,7 +67,6 @@ export default {
   }
 }
 </script>
-
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .flex-wrapper {
