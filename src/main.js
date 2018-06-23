@@ -12,16 +12,16 @@ import 'muse-ui/dist/muse-ui.css'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
-// import Vuex from 'vuex'
-
 import store from './store/index.js'
+
+import md5 from 'js-md5'
 
 Vue.use(MuseUI)
 Vue.use(MintUI)
-// Vue.use(Vuex)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+Vue.prototype.$md5 = md5
 
 theme.add('main-theme', {
   primary: '#2196f3',

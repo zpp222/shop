@@ -42,3 +42,7 @@ npm test
 ## vuex
 > https://vuex.vuejs.org/zh/installation.html
 
+## md5\base64
+``` bash
+npm install --save js-md5
+npm install --save js-base64

@@ -38,7 +38,7 @@ export default {
       var that = this
       this.$http.post('/api/shop-console/login2', {
         name: this.loginForm.name,
-        passwd: this.loginForm.passwd
+        passwd: this.$md5(this.loginForm.passwd)
       })
         .then(function (response) { that.submitSuc(response) })
         .catch(function (response) {
