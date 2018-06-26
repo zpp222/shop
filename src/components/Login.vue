@@ -42,7 +42,7 @@ export default {
       let username = this.loginForm.name
       let pwd = this.$md5(Base64.encode(this.loginForm.passwd))
 
-      this.$http.post('/api/shop-console/login2', {
+      this.$http.post('http://localhost:8180/shop-console/login2', {
         name: username,
         passwd: pwd
       })

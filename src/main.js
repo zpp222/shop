@@ -21,6 +21,7 @@ Vue.use(MintUI)
 
 Vue.config.productionTip = false
 Vue.prototype.$http = axios
+axios.defaults.withCredentials = true
 Vue.prototype.$md5 = md5
 
 theme.add('main-theme', {
